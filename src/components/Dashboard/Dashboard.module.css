@@ -34,7 +34,21 @@
   padding: var(--space-5);
 }
 .panelAccent {
-  border-color: var(--color-ink);
+  background: var(--bc-bg);
+  color: var(--bc-ink);
+  border-color: var(--bc-border);
+}
+.panelAccent .panelTitle {
+  color: var(--bc-accent);
+}
+.panelAccent .rowMain {
+  color: var(--bc-ink);
+}
+.panelAccent .rowSub {
+  color: var(--bc-muted);
+}
+.panelAccent .listRow {
+  border-color: var(--bc-border);
 }
 .panelTitle {
   font-size: var(--text-base);
@@ -79,12 +93,14 @@
 }
 .liveBadge {
   align-self: flex-start;
-  font-weight: var(--weight-bold);
-  font-size: var(--text-xl);
-  background: var(--color-inverse-bg);
-  color: var(--color-inverse-ink);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: 0.04em;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
 }
 .liveRef {
   font-family: var(--font-mono);

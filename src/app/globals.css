@@ -81,6 +81,38 @@ textarea {
   scroll-margin-top: var(--space-8);
 }
 
+/* ---- On-air broadcast motif (shared by SiteNav chip + home broadcast card) ---- */
+@keyframes eqJump {
+  0%,
+  100% {
+    transform: scaleY(0.26);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(0.78);
+  }
+}
+/* One play/pause control flips this attribute on <html>; every bar on the page obeys. */
+:root[data-eq-paused="true"] [data-eq-bar] {
+  animation-play-state: paused !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-eq-bar] {
+    animation: none !important;
+    transform: scaleY(0.5);
+  }
+}
+
 /* Visually hidden but available to screen readers + keyboard (skip links). */
 .sr-only {
   position: absolute;

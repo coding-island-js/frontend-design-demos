@@ -1,10 +1,20 @@
 .player {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
+  /* The player is a dark broadcast card in every theme. Remap the color roles
+     locally so every child (text, controls, tracks, hovers) reads as light-on-dark
+     without touching each rule. */
+  --color-surface: var(--bc-panel);
+  --color-surface-sunken: #2c2c2a;
+  --color-ink: var(--bc-ink);
+  --color-ink-muted: var(--bc-muted);
+  --color-line: var(--bc-border);
+
+  background: var(--bc-bg);
+  color: var(--bc-ink);
+  border: 1px solid var(--bc-border);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
   max-width: 520px;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .nowPlaying {
@@ -33,7 +43,7 @@
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
-  color: var(--color-ink-muted);
+  color: var(--bc-accent);
 }
 .trackTitle {
   font-size: var(--text-xl);

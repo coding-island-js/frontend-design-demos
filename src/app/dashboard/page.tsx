@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   return (
-    <PageShell>
+    <PageShell demoHref="/dashboard/">
       <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
       <div className={styles.wrap}>

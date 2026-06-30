@@ -24,27 +24,10 @@ export default async function CmsIndexPage() {
   const articles = await cmsSource.listArticles();
 
   return (
-    <PageShell>
+    <PageShell demoHref="/cms/">
       <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
       <div className={styles.wrap}>
-        <aside className={styles.note} aria-labelledby="cms-note">
-          <h2 id="cms-note" className={styles.noteLabel}>
-            {t.liveSourceLabel}
-          </h2>
-          <p className={styles.noteValue}>
-            <Badge tone="accent">{cmsSource.name}</Badge>
-          </p>
-          <p className={styles.noteText}>{t.noteText1}</p>
-          <p className={styles.noteText}>
-            {t.noteText2Prefix}
-            <a href="/admin/" target="_blank" rel="noopener noreferrer">
-              {t.noteText2Link}
-            </a>
-            {t.noteText2Suffix}
-          </p>
-        </aside>
-
         {articles.length === 0 ? (
           <p className={styles.empty}>{t.empty}</p>
         ) : (
@@ -65,12 +48,34 @@ export default async function CmsIndexPage() {
                   </span>
                   <h3 className={styles.rowTitle}>{a.title}</h3>
                   <span className={styles.rowDek}>{a.dek}</span>
-                  <span className={styles.rowAuthor}>By {a.author}</span>
+                  <span className={styles.rowFoot}>
+                    <span className={styles.rowAuthor}>By {a.author}</span>
+                    <span className={styles.rowRead} aria-hidden="true">
+                      Read →
+                    </span>
+                  </span>
                 </Link>
               </li>
             ))}
           </ul>
         )}
+
+        <aside className={styles.note} aria-labelledby="cms-note">
+          <h2 id="cms-note" className={styles.noteLabel}>
+            {t.liveSourceLabel}
+          </h2>
+          <p className={styles.noteValue}>
+            <Badge tone="accent">{cmsSource.name}</Badge>
+          </p>
+          <p className={styles.noteText}>{t.noteText1}</p>
+          <p className={styles.noteText}>
+            {t.noteText2Prefix}
+            <a href="/admin/" target="_blank" rel="noopener noreferrer">
+              {t.noteText2Link}
+            </a>
+            {t.noteText2Suffix}
+          </p>
+        </aside>
       </div>
     </PageShell>
   );

@@ -1,0 +1,88 @@
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--bc-bg);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 7px 6px 13px;
+}
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bc-accent);
+  animation: pulseDot 1.6s ease-in-out infinite;
+}
+.onAir {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--bc-accent);
+  white-space: nowrap;
+}
+.station {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-medium);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--bc-muted);
+}
+.eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+.bar {
+  width: 3px;
+  height: 100%;
+  background: var(--bc-accent);
+  transform-origin: bottom;
+  border-radius: 2px;
+  animation-name: eqJump;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.clock {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-medium);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--bc-ink);
+  min-width: 58px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--bc-border);
+  background: var(--bc-panel);
+  color: var(--bc-accent);
+  cursor: pointer;
+  padding: 0;
+  font-size: 11px;
+  line-height: 1;
+  flex: none;
+}
+.toggle:hover {
+  border-color: var(--bc-accent);
+}
+
+/* Below 620px the chip slims to just the live indicator + control. */
+@media (max-width: 620px) {
+  .station,
+  .eq,
+  .clock {
+    display: none;
+  }
+  .chip {
+    padding: 5px 6px 5px 12px;
+    gap: 8px;
+  }
+}

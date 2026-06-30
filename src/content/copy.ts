@@ -17,13 +17,39 @@ export const nav = [
   { href: "/case-study/", label: "Case Study" },
 ];
 
+/**
+ * Flip to true to ship the KCRW-targeted wording (one switch retargets the
+ * eyebrow, lead, station label, "why" lead, and contact title). Default is the
+ * general version so the live site reads for any senior design + front-end role.
+ */
+export const KCRW_MODE = false;
+
+export const onAir = {
+  label: "ON AIR",
+  station: KCRW_MODE ? "KCRW" : "LA",
+  pauseLabel: "Pause the on air animation",
+  playLabel: "Play the on air animation",
+};
+
 export const home = {
-  badge: "Front-end engineering and design systems",
-  titleTop: "Design thinking,",
-  titleAccent: "shipped front-end.",
-  lead: "I'm Raj. I design and build front-end. These are small demos that actually work, built on Next.js, React, and TypeScript. They show both halves of the job: the design thinking, and the code that ships.",
-  ctaPrimary: "See the demos",
-  ctaSecondary: "View the source",
+  eyebrow: KCRW_MODE
+    ? "For KCRW · Senior Product Designer and Front End Engineer"
+    : "Senior Product Designer and Front End Engineer",
+  titleLine1: "I design it.",
+  titleLine2: "Then I build",
+  titleAccent: "it for real.",
+  lead: KCRW_MODE
+    ? "I'm Raj. I do both halves of this job. I draw the user journey, design the system, then write the React that ships it. Below are six small products. Each one runs in your browser right now. None are mockups. Each one proves a part of what KCRW needs."
+    : "I'm Raj. I do both halves of this job. I draw the user journey, design the system, then write the React that ships it. Below are six small products. Each one runs in your browser right now. None are mockups. Each one proves a part of what this role needs.",
+  ctaPrimary: "See the work",
+  ctaSecondary: "Why I fit the role",
+  card: {
+    nowBroadcasting: "NOW BROADCASTING",
+    available: "AVAILABLE",
+    title: "A portfolio that actually runs.",
+    sub: "Six working demos. Open any one.",
+    location: "RAJ · LOS ANGELES",
+  },
   stack: [
     "Next.js",
     "React",
@@ -31,22 +57,72 @@ export const home = {
     "CSS / SCSS",
     "WCAG 2.2 AA",
     "Headless CMS",
+    "Contentful",
     "REST / GraphQL",
     "Analytics",
+    "Node.js",
   ],
-  demosTitle: "Six demos, six skills",
-  demosLead: "Each one works. None are mockups. Each proves a different part of the role.",
-  shippedBadge: "Things I have shipped",
-  shippedTitle: "The demos show the stack. These products show I ship.",
+  workEyebrow: "The work",
+  demosTitle: "Six demos. Six skills.",
+  demosLead:
+    "Each one works in the browser right now. None are mockups. Open any of them.",
+  shippedEyebrow: "Proof",
+  shippedTitle: "And these actually shipped.",
   shippedLead:
     "Live products I designed and built end to end. Front end, back end, billing, and analytics. The demos prove the stack. These prove the track record.",
-  shippedMorePrefix: "More case studies at ",
+  whyEyebrow: "The fit",
+  whyTitle: "Why I fit this role.",
+  whyLead: KCRW_MODE
+    ? "Straight from your job post to the things I already build."
+    : "What this kind of role needs, and what I already build.",
+  why: [
+    {
+      n: "01",
+      k: "Design systems",
+      t: "You want a reusable component library. I build token driven systems that stay consistent and theme in one step.",
+    },
+    {
+      n: "02",
+      k: "Accessibility",
+      t: "Every demo here clears WCAG 2.2 AA. Keyboard, focus, contrast, and reduced motion are built in from the start.",
+    },
+    {
+      n: "03",
+      k: "Headless CMS",
+      t: "I work in headless content. Contentful drops in behind one adapter, with no page changes.",
+    },
+    {
+      n: "04",
+      k: "Membership and CRM",
+      t: "Public media runs on members. I build join flows that convert and hand off clean to Salesforce or HubSpot.",
+    },
+    {
+      n: "05",
+      k: "Privacy first analytics",
+      t: "I ship first party, cookieless tracking. It even catches the AI answer engines most tools miss.",
+    },
+    {
+      n: "06",
+      k: "Design and code, one hire",
+      t: "I draw the journey, then write the React that ships it. You hire one person, not two.",
+    },
+  ],
+  contactEyebrow: "Get in touch",
+  contactTitleLines: KCRW_MODE
+    ? ["Let's build KCRW's", "next chapter."]
+    : ["Let's build", "your next chapter."],
+  contactLead:
+    "One person who can design the experience and ship the front end. That is the whole pitch. Take a look, then let's talk.",
+  contactCtaDemos: "See the live demos",
+  contactCtaSource: "Read the source",
+  contactMorePrefix: "More work at ",
 };
 
 export const footer = {
   tagline:
     "Product designer and front-end engineer. Design thinking and shipped front-end. Built on Next.js, React, and TypeScript.",
   note: "These are demos I built to show front-end and design skill. They are not production work for any named company.",
+  wcag: "Keyboard accessible · WCAG 2.2 AA",
 };
 
 export const audio = {

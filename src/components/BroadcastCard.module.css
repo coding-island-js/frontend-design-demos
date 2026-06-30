@@ -1,0 +1,87 @@
+.card {
+  background: var(--bc-bg);
+  color: var(--bc-ink);
+  border: 1px solid var(--bc-border);
+  border-radius: var(--radius-lg);
+  padding: clamp(22px, 3vw, 32px);
+  box-shadow: var(--shadow-lg);
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+.label {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--bc-muted);
+}
+.available {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--bc-accent);
+}
+.availDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bc-accent);
+  animation: pulseDot 1.6s ease-in-out infinite;
+}
+.cardTitle {
+  font-weight: var(--weight-black);
+  font-size: clamp(1.6rem, 3.3vw, 2.3rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.cardSub {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--bc-muted);
+  margin: 0 0 26px;
+}
+.eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 78px;
+  margin-bottom: 22px;
+}
+.bar {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background: var(--bc-accent);
+  transform-origin: bottom;
+  border-radius: 3px 3px 0 0;
+  animation-name: eqJump;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.divider {
+  height: 1px;
+  background: var(--bc-border);
+  margin-bottom: 16px;
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-weight: var(--weight-medium);
+  font-size: 12px;
+  color: var(--bc-muted);
+}
+.clock {
+  color: var(--bc-ink);
+  font-variant-numeric: tabular-nums;
+}

@@ -7,7 +7,10 @@ export function SiteFooter() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.colWide}>
-          <p className={styles.wordmark}>Raj Lakhani</p>
+          <p className={styles.wordmark}>
+            <span className={styles.mark} aria-hidden="true" />
+            Raj Lakhani
+          </p>
           <p className={styles.tagline}>{footer.tagline}</p>
         </div>
         <nav className={styles.col} aria-label="Demos">
@@ -33,6 +36,7 @@ export function SiteFooter() {
       </div>
       <div className={styles.note}>
         <p>{footer.note}</p>
+        <p className={styles.wcag}>{footer.wcag}</p>
       </div>
     </footer>
   );

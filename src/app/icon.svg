@@ -1,0 +1,11 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Raj Lakhani broadcast mark">
+  <rect width="512" height="512" rx="112" fill="#111110"/>
+  <!-- on-air equalizer: three acid bars, bottom-aligned -->
+  <g fill="#d6ff00">
+    <rect x="118" y="226" width="72" height="174" rx="16"/>
+    <rect x="220" y="138" width="72" height="262" rx="16"/>
+    <rect x="322" y="270" width="72" height="130" rx="16"/>
+  </g>
+  <!-- pulsing on-air dot -->
+  <circle cx="358" cy="170" r="34" fill="#d6ff00" stroke="#111110" stroke-width="14"/>
+</svg>

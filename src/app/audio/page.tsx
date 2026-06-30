@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AudioPage() {
   return (
-    <PageShell>
+    <PageShell demoHref="/audio/">
       <PageHeader eyebrow={audio.eyebrow} title={audio.title} lead={audio.lead} />
 
       <div className={styles.layout}>

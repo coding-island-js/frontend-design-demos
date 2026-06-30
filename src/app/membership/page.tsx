@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function MembershipPage() {
   return (
-    <PageShell>
+    <PageShell demoHref="/membership/">
       <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
       {/*
@@ -46,10 +46,14 @@ export default function MembershipPage() {
                   <span className={styles.nodeNum} aria-hidden="true">
                     {i + 1}
                   </span>
-                  <span className={styles.nodeLabel}>{node.label}</span>
-                  <span className={styles.nodeSub}>{node.sub}</span>
+                  <span className={styles.nodeBody}>
+                    <span className={styles.nodeHead}>
+                      <span className={styles.nodeLabel}>{node.label}</span>
+                      <span className={styles.nodeSub}>{node.sub}</span>
+                    </span>
+                    <span className={styles.nodeDetail}>{node.detail}</span>
+                  </span>
                 </div>
-                <p className={styles.nodeDetail}>{node.detail}</p>
                 {i < t.pipeline.length - 1 && (
                   <span className={styles.arrow} aria-hidden="true">
                     ↓

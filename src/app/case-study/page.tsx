@@ -98,7 +98,7 @@ const AFTER_FIXES = [
 
 export default function CaseStudyPage() {
   return (
-    <PageShell>
+    <PageShell demoHref="/case-study/">
       <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
       <div className={styles.body}>

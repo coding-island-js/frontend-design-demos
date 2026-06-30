@@ -36,6 +36,18 @@
   --color-inverse-ink: var(--kcrw-cream);
   --color-danger: var(--kcrw-red);
   --color-success: var(--kcrw-green);
+  --color-ink-soft: var(--kcrw-gray-700); /* slightly stronger than muted, for lead text */
+
+  /* --- Broadcast motif surfaces ---
+     The "on air" black block (nav chip, hero broadcast card, stack strip, shipped
+     band) stays a near-black KCRW block in every theme on purpose, so the signature
+     stays legible and iconic. Only the accent follows the active theme. */
+  --bc-bg: #111110;
+  --bc-panel: #1e1e1d;
+  --bc-border: #343330;
+  --bc-ink: #f1f1ea;
+  --bc-muted: #a3a097;
+  --bc-accent: var(--color-accent);
 
   /* --- Type --- */
   /* --font-inter / --font-plex-mono are injected by next/font in layout.tsx */

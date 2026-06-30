@@ -62,17 +62,8 @@
   --radius-pill: 2px;
 }
 
-/* Honor OS dark preference for visitors who never touch the switcher, but only
-   when no explicit theme has been chosen. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    --color-bg: #141414;
-    --color-surface: #1e1e1d;
-    --color-surface-sunken: #262625;
-    --color-ink: #f1f1ea;
-    --color-ink-muted: #a3a097;
-    --color-line: #343330;
-    --color-inverse-bg: #f1f1ea;
-    --color-inverse-ink: #141414;
-  }
-}
+/* Theme switcher removed from the UI: the site ships in the single designed KCRW
+   cream look for everyone. The named themes above stay as documentation of the
+   token system (and can be re-enabled with a switcher later). We intentionally do
+   NOT auto-flip to dark on prefers-color-scheme, so first impressions match the
+   intended design. */

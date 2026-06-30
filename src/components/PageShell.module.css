@@ -6,6 +6,21 @@
   margin-inline: auto;
   padding: var(--space-8) var(--space-5) var(--space-6);
 }
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  margin-bottom: var(--space-5);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.back:hover {
+  color: var(--color-ink);
+}
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--text-sm);

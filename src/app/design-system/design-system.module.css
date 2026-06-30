@@ -78,18 +78,23 @@
 .swatch {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 .swatchChip {
-  height: 64px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-line);
+  height: 66px;
+  border: none;
+  border-bottom: 1px solid var(--color-line);
 }
 .swatchRole {
-  font-weight: var(--weight-medium);
+  padding: 12px 14px 0;
+  font-weight: var(--weight-semibold);
   font-size: var(--text-sm);
 }
 .swatchToken {
+  padding: 2px 14px 14px;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-ink-muted);

@@ -43,7 +43,7 @@ function Section({
 
 export default function DesignSystemPage() {
   return (
-    <PageShell>
+    <PageShell demoHref="/design-system/">
       <PageHeader eyebrow={t.eyebrow} title={t.title} lead={t.lead} />
 
       {/* On-page nav */}
