@@ -1,0 +1,50 @@
+.figure {
+  margin: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.canvas {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+.canvas :global(svg) {
+  max-width: 100%;
+  height: auto;
+}
+.caption {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+  text-align: center;
+}
+.source {
+  margin-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+  padding-top: var(--space-3);
+}
+.source summary {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+}
+.source pre {
+  margin-top: var(--space-3);
+  background: var(--color-inverse-bg);
+  color: var(--color-inverse-ink);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+.error {
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}

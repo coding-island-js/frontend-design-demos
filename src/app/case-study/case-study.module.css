@@ -1,0 +1,243 @@
+.body {
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  padding: 0 var(--space-5) var(--space-9);
+}
+.section {
+  padding: var(--space-7) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.section:last-child {
+  border-bottom: none;
+}
+.h2 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+.lead {
+  font-size: var(--text-lg);
+  color: var(--color-ink-muted);
+  max-width: 65ch;
+  margin-bottom: var(--space-5);
+}
+.note {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+  max-width: 65ch;
+}
+
+/* Persona */
+.persona {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.personaAvatar {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-inverse-bg);
+  color: var(--color-accent);
+  display: grid;
+  place-items: center;
+  font-weight: var(--weight-black);
+  font-size: var(--text-xl);
+}
+.personaName {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+.personaRole {
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-3);
+}
+.personaGoals {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+/* Scenario */
+.scenario {
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  padding: var(--space-5) var(--space-6);
+  border-left: 4px solid var(--color-accent);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+/* Diagrams */
+.diagrams {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+/* Wireframes */
+.wireGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+.wire {
+  margin: 0;
+}
+.wireCap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-3);
+}
+.frame {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-height: 260px;
+  margin-bottom: var(--space-4);
+}
+.frameBefore {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-surface-sunken),
+    var(--color-surface-sunken) 10px,
+    var(--color-surface) 10px,
+    var(--color-surface) 20px
+  );
+}
+.frameAfter {
+  background: var(--color-surface);
+}
+.wbDenseNav,
+.wbTable,
+.wbIcon {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-ink-muted);
+  border: 1px dashed var(--color-line);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+}
+.wbBlock {
+  height: 28px;
+  background: var(--color-line);
+  border-radius: var(--radius-sm);
+}
+.waNav {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-ink);
+  color: var(--color-inverse-ink);
+  border-radius: var(--radius-sm);
+}
+.waNowPlaying {
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  padding: var(--space-3);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border-radius: var(--radius-sm);
+  display: flex;
+  justify-content: space-between;
+}
+.waCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+.waCards span {
+  height: 56px;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+}
+.waPlay {
+  margin-top: auto;
+  font-weight: var(--weight-bold);
+  padding: var(--space-3);
+  border: 2px solid var(--color-ink);
+  border-radius: var(--radius-pill);
+  text-align: center;
+}
+.wireList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+.issueBad,
+.issueGood {
+  padding-left: var(--space-5);
+  position: relative;
+}
+.issueBad::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  color: var(--color-danger);
+  font-weight: var(--weight-bold);
+}
+.issueGood::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: var(--weight-bold);
+}
+
+/* Scores */
+.scores {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.scores th,
+.scores td {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+.scores thead th {
+  background: var(--color-inverse-bg);
+  color: var(--color-inverse-ink);
+  font-size: var(--text-sm);
+}
+.scores tbody th {
+  font-weight: var(--weight-semibold);
+}
+.before {
+  color: var(--color-danger);
+  font-family: var(--font-mono);
+}
+.after {
+  color: var(--color-success);
+  font-weight: var(--weight-bold);
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 820px) {
+  .diagrams,
+  .wireGrid {
+    grid-template-columns: 1fr;
+  }
+  .persona {
+    flex-direction: column;
+  }
+}

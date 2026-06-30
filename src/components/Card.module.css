@@ -1,0 +1,50 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-line);
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.surface {
+  background: var(--color-surface);
+}
+.ink {
+  background: var(--color-inverse-bg);
+  color: var(--color-inverse-ink);
+  border-color: transparent;
+}
+.interactive {
+  transition: transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.interactive:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-ink);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-ink-muted);
+}
+.ink .eyebrow {
+  color: var(--color-accent);
+}
+.title {
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+}
+.body {
+  font-size: var(--text-base);
+  color: var(--color-ink-muted);
+}
+.ink .body {
+  color: var(--color-gray-300, #c9c7bf);
+}

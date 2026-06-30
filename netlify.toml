@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# Static export already emits /route/index.html for clean URLs, and Netlify
+# serves 404.html automatically. Netlify Forms is detected from the hidden
+# static form on /membership at deploy time.

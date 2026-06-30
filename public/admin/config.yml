@@ -1,0 +1,35 @@
+# Decap CMS configuration — open-source, Git-based headless CMS.
+# The `article` collection below IS the content model. It maps 1:1 to the
+# Markdown frontmatter in /content/articles, which the site reads at build time.
+
+backend:
+  # Git Gateway lets editors commit through Netlify Identity (free, no DB).
+  # Until that's enabled, use the local backend for editing on your machine:
+  #   npx decap-server   (then run the site and open /admin/)
+  name: git-gateway
+  branch: main
+
+# Set to true while developing locally with `npx decap-server`.
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "content/articles"
+    create: true
+    slug: "{{slug}}"
+    # These fields are the content model — the same shape as src/lib/cms/types.ts.
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Summary (dek)", name: "dek", widget: "text" }
+      - { label: "Author", name: "author", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["Music", "Design", "Culture", "News"]
+      - { label: "Publish date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }

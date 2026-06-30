@@ -1,0 +1,248 @@
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 520px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Progress */
+.progress {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+.progressStep {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-muted);
+  padding-top: var(--space-2);
+  border-top: 3px solid var(--color-line);
+  transition: color var(--dur-base), border-color var(--dur-base);
+}
+.progressDone {
+  color: var(--color-ink);
+  font-weight: var(--weight-bold);
+  border-top-color: var(--color-accent);
+}
+
+.fieldset {
+  border: none;
+}
+.legend {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  margin-bottom: var(--space-5);
+}
+.legend:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* Tiers */
+.tierList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.tier {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "radio name suggested"
+    "radio perk perk";
+  gap: 2px var(--space-3);
+  padding: var(--space-4);
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--dur-fast);
+}
+.tier:hover {
+  border-color: var(--color-ink-muted);
+}
+.tierActive {
+  border-color: var(--color-ink);
+  background: var(--color-surface-sunken);
+}
+.tierRadio {
+  grid-area: radio;
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-ink);
+}
+.tierName {
+  grid-area: name;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-lg);
+}
+.tierSuggested {
+  grid-area: suggested;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-ink-muted);
+  align-self: center;
+}
+.tierPerk {
+  grid-area: perk;
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+}
+
+/* Billing toggle */
+.billingToggle {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-5);
+}
+.toggleBtn {
+  border: none;
+  background: transparent;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  color: var(--color-ink-muted);
+}
+.toggleActive {
+  background: var(--color-ink);
+  color: var(--color-inverse-ink);
+}
+
+/* Amount presets */
+.presets {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+.preset {
+  padding: var(--space-3);
+  border: 2px solid var(--color-line);
+  background: transparent;
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-lg);
+  cursor: pointer;
+}
+.presetActive {
+  border-color: var(--color-ink);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.amountInputWrap {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding-left: var(--space-4);
+}
+.amountInputWrap:focus-within {
+  border-color: var(--color-ink);
+}
+.currency {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-ink-muted);
+}
+.amountInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: var(--space-3);
+  font-size: var(--text-lg);
+  background: transparent;
+}
+
+/* Generic inputs */
+.label {
+  display: block;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+  margin: var(--space-4) 0 var(--space-2);
+}
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--color-line);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  background: var(--color-bg);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--color-ink);
+}
+.input[aria-invalid="true"],
+.amountInput[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+  margin-top: var(--space-2);
+  font-weight: var(--weight-medium);
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+.summary > div {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-line);
+}
+.summary dt {
+  color: var(--color-ink-muted);
+  font-size: var(--text-sm);
+}
+.summary dd {
+  font-weight: var(--weight-bold);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+.actions :only-child {
+  margin-left: auto;
+}
+
+/* Success */
+.success {
+  font-size: var(--text-3xl);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-4);
+}
+.success:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+.successText {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-5);
+}
+.note {
+  font-size: var(--text-sm);
+  color: var(--color-ink-muted);
+  background: var(--color-surface-sunken);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+}

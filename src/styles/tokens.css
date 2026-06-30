@@ -1,0 +1,110 @@
+/* ============================================================================
+   KCRW-flavored design tokens
+   ----------------------------------------------------------------------------
+   Single source of truth for color, type, space, radius, motion. Components
+   only ever read these variables, never hard-coded values. This is what makes
+   the system themeable and is the core "design system" artifact.
+   Brand cues echoed from kcrw.com: cream canvas, near-black ink, one loud acid
+   accent, bold grotesk type, high-contrast black blocks.
+   ============================================================================ */
+
+:root {
+  /* --- Brand primitives (raw values, never used directly in components) --- */
+  --kcrw-cream: #f1f1ea;
+  --kcrw-cream-deep: #e7e7dd;
+  --kcrw-ink: #201e1d;
+  --kcrw-acid: #d6ff00;
+  --kcrw-black: #000000;
+  --kcrw-near-black: #111110;
+  --kcrw-white: #ffffff;
+  --kcrw-gray-700: #4b4945;
+  --kcrw-gray-500: #6f6c66;
+  --kcrw-gray-300: #c9c7bf;
+  --kcrw-red: #e0341d; /* error / live indicator */
+  --kcrw-green: #1f7a4d; /* success */
+
+  /* --- Semantic color roles (this is what components consume) --- */
+  --color-bg: var(--kcrw-cream);
+  --color-surface: var(--kcrw-white);
+  --color-surface-sunken: var(--kcrw-cream-deep);
+  --color-ink: var(--kcrw-ink);
+  --color-ink-muted: var(--kcrw-gray-500);
+  --color-line: var(--kcrw-gray-300);
+  --color-accent: var(--kcrw-acid);
+  --color-on-accent: var(--kcrw-black);
+  --color-inverse-bg: var(--kcrw-near-black);
+  --color-inverse-ink: var(--kcrw-cream);
+  --color-danger: var(--kcrw-red);
+  --color-success: var(--kcrw-green);
+
+  /* --- Type --- */
+  /* --font-inter / --font-plex-mono are injected by next/font in layout.tsx */
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Modular scale (1.25 major third), rem-based for accessibility */
+  --text-xs: 0.75rem; /* 12 */
+  --text-sm: 0.875rem; /* 14 */
+  --text-base: 1rem; /* 16, min body */
+  --text-lg: 1.25rem; /* 20 */
+  --text-xl: 1.5625rem; /* 25 */
+  --text-2xl: 1.953rem; /* 31 */
+  --text-3xl: 2.441rem; /* 39 */
+  --text-4xl: 3.052rem; /* 49 */
+  --text-5xl: 3.815rem; /* 61 */
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.12em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  /* --- Space (8px base scale) --- */
+  --space-1: 0.25rem; /* 4 */
+  --space-2: 0.5rem; /* 8 */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem; /* 16 */
+  --space-5: 1.5rem; /* 24 */
+  --space-6: 2rem; /* 32 */
+  --space-7: 3rem; /* 48 */
+  --space-8: 4rem; /* 64 */
+  --space-9: 6rem; /* 96 */
+
+  /* --- Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* --- Elevation --- */
+  --shadow-sm: 0 1px 2px rgba(32, 30, 29, 0.08);
+  --shadow-md: 0 6px 20px rgba(32, 30, 29, 0.1);
+  --shadow-lg: 0 18px 50px rgba(32, 30, 29, 0.16);
+
+  /* --- Layout --- */
+  --container-sm: 640px;
+  --container-md: 820px;
+  --container-lg: 1120px;
+  --container-xl: 1320px;
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 360ms;
+
+  /* --- Focus ring (one consistent token used everywhere) --- */
+  --focus-ring: 3px solid var(--kcrw-ink);
+  --focus-offset: 2px;
+
+  /* --- z-index scale --- */
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-toast: 300;
+}

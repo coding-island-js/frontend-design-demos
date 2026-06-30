@@ -1,0 +1,78 @@
+/* ============================================================================
+   THEMES (the "skin")
+   ----------------------------------------------------------------------------
+   Each theme overrides only the semantic color + radius tokens. Components never
+   change. Switch with <html data-theme="noir"> (the ThemeSwitcher does this).
+
+   To add a theme from a Claude design direction:
+   1. Ask Claude (claude.ai) for a palette: bg, surface, ink, muted, line,
+      accent, on-accent, plus a dark "inverse" pair.
+   2. Copy this block, rename the data-theme, paste the values.
+   3. Add it to THEMES in src/components/ThemeSwitcher.tsx.
+   The default theme (kcrw) lives in tokens.css under :root.
+   ============================================================================ */
+
+/* Noir, dark mode. Dark canvas, light blocks, same acid accent. */
+[data-theme="noir"] {
+  --color-bg: #141414;
+  --color-surface: #1e1e1d;
+  --color-surface-sunken: #262625;
+  --color-ink: #f1f1ea;
+  --color-ink-muted: #a3a097;
+  --color-line: #343330;
+  --color-accent: #d6ff00;
+  --color-on-accent: #0a0a0a;
+  --color-inverse-bg: #f1f1ea;
+  --color-inverse-ink: #141414;
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Editorial, warm paper, terracotta accent, softer corners. */
+[data-theme="editorial"] {
+  --color-bg: #f6f1e7;
+  --color-surface: #fffdf8;
+  --color-surface-sunken: #efe7d8;
+  --color-ink: #2a2420;
+  --color-ink-muted: #7a6f60;
+  --color-line: #ddd2bf;
+  --color-accent: #e2552f;
+  --color-on-accent: #fffdf8;
+  --color-inverse-bg: #2a2420;
+  --color-inverse-ink: #f6f1e7;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+}
+
+/* Terminal, brutalist green-on-black, square corners. */
+[data-theme="terminal"] {
+  --color-bg: #0d0f0d;
+  --color-surface: #121512;
+  --color-surface-sunken: #1a1e1a;
+  --color-ink: #d7f5d7;
+  --color-ink-muted: #6f8f6f;
+  --color-line: #243024;
+  --color-accent: #39ff14;
+  --color-on-accent: #07120a;
+  --color-inverse-bg: #d7f5d7;
+  --color-inverse-ink: #0d0f0d;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 2px;
+}
+
+/* Honor OS dark preference for visitors who never touch the switcher, but only
+   when no explicit theme has been chosen. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg: #141414;
+    --color-surface: #1e1e1d;
+    --color-surface-sunken: #262625;
+    --color-ink: #f1f1ea;
+    --color-ink-muted: #a3a097;
+    --color-line: #343330;
+    --color-inverse-bg: #f1f1ea;
+    --color-inverse-ink: #141414;
+  }
+}
