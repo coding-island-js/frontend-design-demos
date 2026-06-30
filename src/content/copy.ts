@@ -282,7 +282,7 @@ export const caseStudy = {
     "Reading down each phase shows the pain points in red and the design opportunities highlighted. Those are what the redesign has to answer.",
   iaTitle: "4 · Information architecture and flow",
   iaLead:
-    "Diagrams as code with Mermaid. They live in the repo as text, not as exported images. Left is the site structure. Right is the redesigned task flow.",
+    "Diagrams as code. They live in the repo as text, not exported images. Left is the site structure. Right is the redesigned task flow.",
   wireTitle: "5 · Wireframes, before and after",
   resultTitle: "6 · The result, measured",
   resultLead:

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { PageShell, PageHeader } from "@/components/PageShell";
-import { Mermaid } from "@/components/Mermaid";
-import { JourneyMap, type Stage } from "@/components/JourneyMap/JourneyMap";
 import { Badge } from "@/components/Badge";
 import { caseStudy as t } from "@/content/copy";
 import styles from "./case-study.module.css";
@@ -14,12 +12,23 @@ export const metadata: Metadata = {
 
 // Demo-specific design artifacts. These live with the page; the prose lives in
 // src/content/copy.ts.
+type Stage = {
+  stage: string;
+  doing: string;
+  thinking: string;
+  feeling: string;
+  mood: string;
+  pain: string;
+  opportunity: string;
+};
+
 const STAGES: Stage[] = [
   {
     stage: "Hears a track",
     doing: "Catches a song on air and wants to know what it was.",
     thinking: "What was that? I need to find it before I forget.",
-    feeling: "🙂",
+    feeling: "Curious",
+    mood: "#1f7a4d",
     pain: "Now playing is buried three taps deep.",
     opportunity: "A persistent now playing bar with one tap to save.",
   },
@@ -27,7 +36,8 @@ const STAGES: Stage[] = [
     stage: "Searches the site",
     doing: "Opens the site on her phone to find the show.",
     thinking: "Which show is on at 9am again?",
-    feeling: "😕",
+    feeling: "Unsure",
+    mood: "#caa21a",
     pain: "The schedule is a dense table with no clear focus order.",
     opportunity: "A card based schedule with clear focus states.",
   },
@@ -35,7 +45,8 @@ const STAGES: Stage[] = [
     stage: "Plays the show",
     doing: "Starts the live stream or the on demand episode.",
     thinking: "Just let me press play.",
-    feeling: "😣",
+    feeling: "Frustrated",
+    mood: "#c02a16",
     pain: "The play button is an unlabeled icon. A screen reader says button.",
     opportunity: "A labeled, keyboard ready player (Demo 02).",
   },
@@ -43,35 +54,30 @@ const STAGES: Stage[] = [
     stage: "Saves and returns",
     doing: "Wants to follow the show and come back later.",
     thinking: "Will I be able to find this again?",
-    feeling: "😐",
+    feeling: "Hesitant",
+    mood: "#caa21a",
     pain: "No saved state. Nothing personal to return to.",
     opportunity: "A My Station dashboard (Demo 05).",
   },
 ];
 
-const IA_CHART = `graph TD
-  Home["Home"] --> Listen["Listen Live"]
-  Home --> Shows["Shows"]
-  Home --> Schedule["Schedule"]
-  Home --> My["My Station"]
-  Home --> Support["Support / Join"]
-  Shows --> ShowDetail["Show detail"]
-  ShowDetail --> Episode["Episode + player"]
-  My --> Saved["Saved shows"]
-  My --> Recent["Recently played"]
-  Support --> Join["Membership funnel"]`;
+// Information architecture, as a hand-built tree (diagrams as code, no library).
+const IA_TREE = [
+  "Listen Live",
+  "Shows → Show detail → Episode",
+  "Schedule",
+  "My Station → Saved, Recently played",
+  "Support → Membership funnel",
+];
 
-const FLOW_CHART = `flowchart LR
-  A([Hears a track]) --> B{Knows the show?}
-  B -- No --> C[Open Schedule]
-  C --> D[Pick show card]
-  B -- Yes --> D
-  D --> E[Show detail]
-  E --> F[(Play: labeled,\\nkeyboard ready)]
-  F --> G{Wants it later?}
-  G -- Yes --> H[Save to My Station]
-  G -- No --> I([Keep listening])
-  H --> I`;
+// Redesigned task flow. `kind` controls the box style.
+const FLOW_STEPS: { text: string; kind: "start" | "dashed" | "box" | "accent" }[] = [
+  { text: "Hears a track", kind: "start" },
+  { text: "Knows the show?  No → Schedule → pick card", kind: "dashed" },
+  { text: "Show detail", kind: "box" },
+  { text: "Play: labeled, keyboard ready", kind: "accent" },
+  { text: "Wants it later? → Save to My Station", kind: "box" },
+];
 
 const SCORES = [
   { metric: "axe violations", before: "23", after: "0" },
@@ -152,7 +158,31 @@ export default function CaseStudyPage() {
             {t.journeyTitle}
           </h2>
           <p className={styles.lead}>{t.journeyLead}</p>
-          <JourneyMap persona="Priya. Find, play, save a show." stages={STAGES} />
+          <div className={styles.expGrid}>
+            {STAGES.map((s) => (
+              <div key={s.stage} className={styles.expCard}>
+                <span className={styles.expStage}>{s.stage}</span>
+                <p className={styles.expDoing}>{s.doing}</p>
+                <p className={styles.expThinking}>&ldquo;{s.thinking}&rdquo;</p>
+                <span className={styles.expMood}>
+                  <span
+                    className={styles.expMoodDot}
+                    style={{ background: s.mood }}
+                    aria-hidden="true"
+                  />
+                  {s.feeling}
+                </span>
+                <p className={styles.expPain}>
+                  <span className={styles.blockLabel}>Pain</span>
+                  {s.pain}
+                </p>
+                <p className={styles.expOpp}>
+                  <span className={styles.blockLabel}>Opportunity</span>
+                  {s.opportunity}
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className={styles.section} aria-labelledby="cs-ia">
@@ -160,9 +190,35 @@ export default function CaseStudyPage() {
             {t.iaTitle}
           </h2>
           <p className={styles.lead}>{t.iaLead}</p>
-          <div className={styles.diagrams}>
-            <Mermaid chart={IA_CHART} caption="Information architecture. Site structure." />
-            <Mermaid chart={FLOW_CHART} caption="Task flow. Hear, find, play, save." />
+          <div className={styles.iaGrid}>
+            <figure className={styles.iaPanel}>
+              <figcaption className={styles.iaCap}>Information architecture</figcaption>
+              <div className={styles.iaTree}>
+                <span className={styles.iaHome}>Home</span>
+                <div className={styles.iaBranch}>
+                  {IA_TREE.map((node) => (
+                    <span key={node} className={styles.iaNode}>
+                      {node}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </figure>
+            <figure className={styles.iaPanel}>
+              <figcaption className={styles.iaCap}>Task flow</figcaption>
+              <div className={styles.flowCol}>
+                {FLOW_STEPS.map((step, i) => (
+                  <div key={step.text} className={styles.flowItem}>
+                    <span className={styles[`flow_${step.kind}`]}>{step.text}</span>
+                    {i < FLOW_STEPS.length - 1 && (
+                      <span className={styles.flowArrow} aria-hidden="true">
+                        ↓
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </figure>
           </div>
         </section>
 
